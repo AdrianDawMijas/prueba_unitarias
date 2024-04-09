@@ -4,11 +4,12 @@ package org.iesvdm.tddjava.asserts;
 
 import org.junit.jupiter.api.Test;
 import org.testng.IObjectFactory2;
+import org.testng.asserts.IAssert;
 
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+// Se trae los metodos estaticos que no pueden ser modificados
 
 /**
 <p>
@@ -43,12 +44,13 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 
-public class AssertTest {
+public class AssertTest { //Clases de test siempre acaban en Test
 
     @Test
     void whenBooleanIsTrue() {
         assertTrue(1 == 1);
     }
+
 
     @Test
     void whenBooleanIsFalse() {

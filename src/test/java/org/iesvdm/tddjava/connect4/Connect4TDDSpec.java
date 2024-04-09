@@ -30,7 +30,7 @@ public class Connect4TDDSpec {
     /*
      * The board is composed by 7 horizontal and 6 vertical empty positions
      */
-
+    //Prueba
     @Test
     public void whenTheGameStartsTheBoardIsEmpty() {
 
