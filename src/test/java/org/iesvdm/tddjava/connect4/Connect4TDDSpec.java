@@ -3,14 +3,14 @@ package org.iesvdm.tddjava.connect4;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.testng.Assert;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class Connect4TDDSpec {
@@ -33,7 +33,7 @@ public class Connect4TDDSpec {
     //Prueba
     @Test
     public void whenTheGameStartsTheBoardIsEmpty() {
-
+        assertEquals(0, tested.getNumberOfDiscs());
     }
 
     /*
@@ -44,8 +44,9 @@ public class Connect4TDDSpec {
 
     @Test
     public void whenDiscOutsideBoardThenRuntimeException() {
-
-
+        assertThrows(RuntimeException.class,() ->{
+            tested.putDiscInColumn(8);
+        });
     }
 
     @Test
@@ -57,7 +58,7 @@ public class Connect4TDDSpec {
 
     @Test
     public void whenSecondDiscInsertedInColumnThenPositionIsOne() {
-
+        ass
 
     }
 
