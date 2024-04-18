@@ -111,15 +111,15 @@ public class Connect4TDDSpec {
 
     @Test
     public void whenAskedForCurrentPlayerTheOutputNotice() {
-        ByteArrayOutputStream by
-        tested.getCurrentPlayer();
-        assertThat(byteArrayOutputStream.toString()).isNotEmpty();
+            tested.getCurrentPlayer();
+            assertThat(output.toString()).isNotEmpty();
 
     }
 
     @Test
     public void whenADiscIsIntroducedTheBoardIsPrinted() {
-
+        tested.putDiscInColumn(0);
+        assertThat(output.toString()).contains("R");
     }
 
     /*
@@ -133,9 +133,24 @@ public class Connect4TDDSpec {
 
     @Test
     public void whenNoDiscCanBeIntroducedTheGamesIsFinished() {
+        for (int i = 0; i <= Connect4.COLUMNS-1; i += 2) {
+            for (int j = 0; j < Connect4.ROWS-1; j++) {
+                tested.putDiscInColumn(i);
+            }
+        }
+        for (int i = 1; i < Connect4.COLUMNS; i += 2) {
+            for (int j = 0; j <= Connect4.ROWS; j++) {
+                if (j == 0) {
+                    tested.putDiscInColumn(i - 1);
+                } else {
+                    tested.putDiscInColumn(i);
+                }
+            }
+        }
+        tested.putDiscInColumn(6);
 
+        assertThat(tested.getNumberOfDiscs()).isEqualTo(Connect4.COLUMNS*Connect4.ROWS);
     }
-
     /*
      * If a player inserts a disc and connects more than 3 discs of his colour
      * in a straight vertical line then that player wins
